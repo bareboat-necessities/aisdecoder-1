@@ -19,18 +19,21 @@ Modified by Pocket Mariner (C) 2015 to read directly from a fifo and not depend 
  
  
 To build:-
- 
-cd build
+
+```
+mkdir build && cd build
 cmake ../ -DCMAKE_BUILD_TYPE=RELEASE
 make
+```
 
 To run:- (reads sound data from /tmp/aisfifo)
 
-
+```
 #Have aisdecoder listen to a fifo
 rm /tmp/aisfifo
 mkfifo /tmp/aisfifo
 ./aisdecoder -h 54.225.113.225 -p 7011 -t 1 -n /dev/ttyO1 -d -f /tmp/aisfifo
+```
 
 then startup rtl_fm or gun-radio to output demodulated AIS data to the fifo (e.g. /tmp/aisfifo)
 
